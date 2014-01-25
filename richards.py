@@ -12,7 +12,8 @@ if __name__ == "__main__":
 		if char == '.' or char == ',' or char =='?' or char == '!':
 			puncstack.append(char)
 			puncpos.append(wordcount)
-	instr = string.translate(instr,None,reduce(lambda x,y: x+y, puncstack))
+	if len(puncstack) > 0:
+		instr = string.translate(instr,None,reduce(lambda x,y: x+y, puncstack))
 	words = instr.split(' ')
 	out = ""
 	idx = 0
