@@ -14,6 +14,7 @@ if __name__ == "__main__":
 			puncpos.append(wordcount)
 	if len(puncstack) > 0:
 		instr = string.translate(instr,None,reduce(lambda x,y: x+y, puncstack))
+	instr = string.translate(instr,None,'\n')
 	words = instr.split(' ')
 	out = ""
 	idx = 0
