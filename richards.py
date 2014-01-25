@@ -1,8 +1,10 @@
 import sys
+import re
 import string
 
 if __name__ == "__main__":
 	instr = sys.stdin.readline()
+	instr = re.sub(' +',' ',instr)#Remove multiple spaces
 	puncstack = []
 	puncpos = []
 	wordcount = 0
@@ -14,7 +16,7 @@ if __name__ == "__main__":
 			puncpos.append(wordcount)
 	if len(puncstack) > 0:
 		instr = string.translate(instr,None,reduce(lambda x,y: x+y, puncstack))
-	instr = string.translate(instr,None,'\n')
+	instr = string.translate(instr,None,'\n')#Remove newline
 	words = instr.split(' ')
 	out = ""
 	idx = 0
